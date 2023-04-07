@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/GameLogic.gd" type="Script" id=1]
+[ext_resource path="res://Styles/ButtonPressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://Styles/ButtonHover.tres" type="StyleBox" id=3]
+[ext_resource path="res://Styles/ButtonNormal.tres" type="StyleBox" id=4]
+[ext_resource path="res://Styles/ButtonDisabled.tres" type="StyleBox" id=5]
+[ext_resource path="res://Scenes/InGameMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Heart.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Pause.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/EmptyHeart.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/Rede-Rounded-F99.tres" type="DynamicFont" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 512, 170.5 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="UI" type="Node2D" parent="."]
+z_index = 15
+
+[node name="PauseButton" type="Button" parent="UI"]
+margin_left = 492.0
+margin_top = 6.0
+margin_right = 561.0
+margin_bottom = 75.0
+rect_scale = Vector2( 0.45, 0.45 )
+mouse_default_cursor_shape = 2
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="UI/PauseButton"]
+position = Vector2( 34, 34 )
+texture = ExtResource( 8 )
+
+[node name="Heart1" type="Sprite" parent="UI"]
+position = Vector2( 20, 24 )
+scale = Vector2( 0.2, 0.2 )
+z_index = 20
+texture = ExtResource( 7 )
+
+[node name="Heart2" type="Sprite" parent="UI"]
+position = Vector2( 54, 24 )
+scale = Vector2( 0.2, 0.2 )
+z_index = 20
+texture = ExtResource( 7 )
+
+[node name="Heart3" type="Sprite" parent="UI"]
+position = Vector2( 90, 24 )
+scale = Vector2( 0.2, 0.2 )
+z_index = 20
+texture = ExtResource( 7 )
+
+[node name="EmptyHeart1" type="Sprite" parent="UI"]
+position = Vector2( 20, 24 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 9 )
+
+[node name="EmptyHeart2" type="Sprite" parent="UI"]
+position = Vector2( 54, 24 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 9 )
+
+[node name="EmptyHeart3" type="Sprite" parent="UI"]
+position = Vector2( 90, 24 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 9 )
+
+[node name="LevelNumber" type="Label" parent="UI"]
+margin_left = 977.0
+margin_top = 6.0
+margin_right = 1017.0
+margin_bottom = 20.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 10 )
+text = "Level"
+
+[node name="BulletKiller" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="BulletKillerTop" type="CollisionShape2D" parent="BulletKiller"]
+position = Vector2( 514, -300 )
+shape = SubResource( 1 )
+
+[node name="BulletKillerBottom" type="CollisionShape2D" parent="BulletKiller"]
+position = Vector2( 514, 900 )
+shape = SubResource( 1 )
+
+[node name="Menu" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[connection signal="pressed" from="UI/PauseButton" to="Menu" method="_on_PauseButton_pressed"]
+[connection signal="restart" from="Menu" to="." method="_restart"]

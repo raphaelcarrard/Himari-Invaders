@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/582377_Space-Invaders.mp3-32549a8ea64d26fb554e6a9abc1e5e76.mp3str"
+
+[deps]
+
+source_file="res://Audio/582377_Space-Invaders.mp3"
+dest_files=[ "res://.import/582377_Space-Invaders.mp3-32549a8ea64d26fb554e6a9abc1e5e76.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MobileControls.tscn" type="PackedScene" id=3]
+
+[node name="Player" type="Sprite"]
+position = Vector2( 512, 550 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+bullet_speed = 750
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 36.6667, 26.6667, 21.6667, 51.6667, -3.33331, 65, -26.6667, 58.3334, -46.6667, 38.3334, -50, 13.3334, -60, 33.3334, -76.6667, -1.66663, -83.3333, 11.6667, -85, -3.33331, -75, -43.3333, -50, -70, -20, -83.3333, 13.3333, -81.6666, 40, -75, 63.3333, -58.3333, 75, -38.3333, 81.6667, -11.6666, 83.3333, 15, 81.6667, 45, 76.6667, 61.6667, 68.3333, 31.6667, 56.6667, 63.3334, 30, 86.6667, 43.3333, 51.6667, 43.3333, 23.3334 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

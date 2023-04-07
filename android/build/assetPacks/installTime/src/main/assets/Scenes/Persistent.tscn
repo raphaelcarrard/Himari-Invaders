@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Persistent.gd" type="Script" id=1]
+[ext_resource path="res://Audio/Hurt.wav" type="AudioStream" id=2]
+[ext_resource path="res://Audio/Explosion.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Shoot.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Select.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Enemy Explosion.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/582377_Space-Invaders.mp3" type="AudioStream" id=7]
+
+[node name="Node" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+explode_sounds = [ ExtResource( 3 ), ExtResource( 6 ) ]
+shoot_sounds = [ ExtResource( 4 ), ExtResource( 4 ) ]
+player_hurt_sound = ExtResource( 2 )
+select_sound = ExtResource( 5 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+autoplay = true
+
+[node name="SelectSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="ShootSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="ExplodeSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="HurtSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )

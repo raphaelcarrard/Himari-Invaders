@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/GameObjects/Enemy0.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GameObjects/Enemy1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameObjects/Enemy2.tscn" type="PackedScene" id=3]
+
+[node name="Enemies" type="Node"]
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 655, 108 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 751, 108 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 847, 108 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 943, 108 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 267, 108 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 175, 108 )
+
+[node name="Enemy7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 360, 108 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 79, 108 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 256, 232 )
+wave_amount_range = [ 75, 90 ]
+
+[node name="Enemy10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, 232 )
+wave_amount_range = [ 75, 90 ]
+
+[node name="Enemy11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 192 )
